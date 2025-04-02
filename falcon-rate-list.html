@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khamma Ghani Events - Rate List</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+      }
+      .header-bg {
+        background: linear-gradient(135deg, #3494e6, #ec6ead);
+      }
+      .tour-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+      .tour-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+        overflow: auto;
+      }
+      .modal-content {
+        position: relative;
+        margin: 10% auto;
+        width: 80%;
+        max-width: 600px;
+        animation: modalopen 0.4s;
+      }
+      @keyframes modalopen {
+        from {
+          opacity: 0;
+          transform: translateY(-60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .close-btn {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 24px;
+        cursor: pointer;
+      }
+      .close-btn:hover {
+        color: red;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
+      <div
+        class="container mx-auto px-4 py-3 flex flex-row justify-between items-center"
+      >
+        <div class="text-xl md:text-2xl font-bold text-blue-600">
+          <a href="index.html"> Khamma Ghani Events </a>
+        </div>
+        <div class="space-x-2 md:space-x-4">
+          <a
+            href="index.html"
+            class="bg-blue-500 text-white px-3 py-2 md:px-4 md:py-2 text-sm md:text-base rounded-full hover:bg-blue-600"
+            >Home</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header-bg text-white pt-24 pb-12">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold mb-4">Our Rates & Services</h1>
+        <p class="text-xl">Select a tour package to view pricing details</p>
+      </div>
+    </header>
+
+    <!-- Rate List Section -->
+    <section id="rate-list" class="container mx-auto px-4 py-12">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Airport Pickup/Drop -->
+        <div
+          class="tour-card bg-white rounded-lg shadow-md overflow-hidden"
+          onclick="openModal('airport')"
+        >
+          <div class="bg-blue-600 text-white p-4">
+            <h3 class="text-xl font-bold">Airport Pickup/Drop</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-600 mb-4">
+              Comfortable ride to and from the airport
+            </p>
+            <p class="text-gray-800 font-semibold">Starting from ₹1000</p>
+            <div class="mt-4 text-center">
+              <span class="text-blue-600 font-bold">View Rates →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Railway Station Pickup/Drop -->
+        <div
+          class="tour-card bg-white rounded-lg shadow-md overflow-hidden"
+          onclick="openModal('railway')"
+        >
+          <div class="bg-green-600 text-white p-4">
+            <h3 class="text-xl font-bold">Railway Station Pickup/Drop</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-600 mb-4">
+              Hassle-free transportation from the station
+            </p>
+            <p class="text-gray-800 font-semibold">Starting from ₹650</p>
+            <div class="mt-4 text-center">
+              <span class="text-green-600 font-bold">View Rates →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sightseeing 8Hr -->
+        <div
+          class="tour-card bg-white rounded-lg shadow-md overflow-hidden"
+          onclick="openModal('sight8')"
+        >
+          <div class="bg-purple-600 text-white p-4">
+            <h3 class="text-xl font-bold">Sightseeing (8Hr/80Km)</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-600 mb-4">
+              Explore city attractions (Airport & Sajjangarh not included)
+            </p>
+            <p class="text-gray-800 font-semibold">Starting from ₹2250</p>
+            <div class="mt-4 text-center">
+              <span class="text-purple-600 font-bold">View Rates →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sightseeing 12Hr -->
+        <div
+          class="tour-card bg-white rounded-lg shadow-md overflow-hidden"
+          onclick="openModal('sight12')"
+        >
+          <div class="bg-indigo-600 text-white p-4">
+            <h3 class="text-xl font-bold">Sightseeing (12Hr/120Km)</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-600 mb-4">
+              Comprehensive city tour with extended hours
+            </p>
+            <p class="text-gray-800 font-semibold">Starting from ₹2750</p>
+            <div class="mt-4 text-center">
+              <span class="text-indigo-600 font-bold">View Rates →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nathdwara & Ekling Ji -->
+        <div
+          class="tour-card bg-white rounded-lg shadow-md overflow-hidden"
+          onclick="openModal('nathdwara')"
+        >
+          <div class="bg-red-600 text-white p-4">
+            <h3 class="text-xl font-bold">Nathdwara & Ekling Ji (5Hr)</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-600 mb-4">
+              Visit sacred temples and spiritual sites
+            </p>
+            <p class="text-gray-800 font-semibold">Starting from ₹2500</p>
+            <div class="mt-4 text-center">
+              <span class="text-red-600 font-bold">View Rates →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nathdwara, Ekling Ji & Haldi Ghati -->
+        <div
+          class="tour-card bg-white rounded-lg shadow-md overflow-hidden"
+          onclick="openModal('nathdwara-haldi')"
+        >
+          <div class="bg-yellow-600 text-white p-4">
+            <h3 class="text-xl font-bold">
+              Nathdwara, Ekling Ji & Haldi Ghati (8Hr)
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-600 mb-4">
+              Comprehensive spiritual and historical tour
+            </p>
+            <p class="text-gray-800 font-semibold">Starting from ₹2950</p>
+            <div class="mt-4 text-center">
+              <span class="text-yellow-600 font-bold">View Rates →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nathdwara, Ekling Ji & City Sightseeing -->
+        <div
+          class="tour-card bg-white rounded-lg shadow-md overflow-hidden"
+          onclick="openModal('nathdwara-city')"
+        >
+          <div class="bg-pink-600 text-white p-4">
+            <h3 class="text-xl font-bold">
+              Nathdwara, Ekling Ji & City Tour (12Hr)
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-600 mb-4">
+              Complete city and temple exploration
+            </p>
+            <p class="text-gray-800 font-semibold">Starting from ₹3500</p>
+            <div class="mt-4 text-center">
+              <span class="text-pink-600 font-bold">View Rates →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chittor Garh & Sanwariya Ji -->
+        <div
+          class="tour-card bg-white rounded-lg shadow-md overflow-hidden"
+          onclick="openModal('chittor')"
+        >
+          <div class="bg-green-600 text-white p-4">
+            <h3 class="text-xl font-bold">Chittor Garh & Sanwariya Ji</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-600 mb-4">Historical fort and temple visit</p>
+            <p class="text-gray-800 font-semibold">Starting from ₹4000</p>
+            <div class="mt-4 text-center">
+              <span class="text-teal-600 font-bold">View Rates →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mount Abu Sightseeing -->
+        <div
+          class="tour-card bg-white rounded-lg shadow-md overflow-hidden"
+          onclick="openModal('mountabu')"
+        >
+          <div class="bg-blue-800 text-white p-4">
+            <h3 class="text-xl font-bold">Mount Abu Sightseeing (Same Day)</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-600 mb-4">
+              Day trip to hill station with return
+            </p>
+            <p class="text-gray-800 font-semibold">Starting from ₹4950</p>
+            <div class="mt-4 text-center">
+              <span class="text-blue-800 font-bold">View Rates →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kumbhal Garh & Haldi Ghati -->
+        <div
+          class="tour-card bg-white rounded-lg shadow-md overflow-hidden"
+          onclick="openModal('kumbhal-haldi')"
+        >
+          <div class="bg-green-800 text-white p-4">
+            <h3 class="text-xl font-bold">Kumbhal Garh & Haldi Ghati</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-600 mb-4">
+              Explore historic forts and battlefields
+            </p>
+            <p class="text-gray-800 font-semibold">Starting from ₹3500</p>
+            <div class="mt-4 text-center">
+              <span class="text-green-800 font-bold">View Rates →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kumbhal Garh & Ranakpur -->
+        <div
+          class="tour-card bg-white rounded-lg shadow-md overflow-hidden"
+          onclick="openModal('kumbhal-ranakpur')"
+        >
+          <div class="bg-purple-800 text-white p-4">
+            <h3 class="text-xl font-bold">Kumbhal Garh & Ranakpur</h3>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-600 mb-4">UNESCO site and Jain temple visit</p>
+            <p class="text-gray-800 font-semibold">Starting from ₹3600</p>
+            <div class="mt-4 text-center">
+              <span class="text-purple-800 font-bold">View Rates →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Terms and Conditions Section -->
+    <section class="bg-gray-100 py-12">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Terms & Conditions</h2>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <ol class="list-decimal pl-5 space-y-3">
+            <li>Kilometres reading will start / finish at our garage.</li>
+            <li>
+              The above rates do not include guide charges and entrance fees to
+              the monuments.
+            </li>
+            <li>
+              Any duty cancellation with less than four hours of notice will
+              invite 10% (of the duty cost) charge.
+            </li>
+            <li>50% advance payment.</li>
+            <li>Water bottle will be available in the vehicle.</li>
+            <li>
+              <strong>Extra hr rates (Per hr):</strong>
+              <ul class="list-disc pl-6 mt-2">
+                <li>Sedan: ₹250</li>
+                <li>Innova Crysta: ₹400</li>
+                <li>Urbania: ₹800</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Extra Km rates (Per Km):</strong>
+              <ul class="list-disc pl-6 mt-2">
+                <li>Sedan: ₹14</li>
+                <li>Innova Crysta: ₹20</li>
+                <li>Urbania: ₹40</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-blue-600 text-white py-12">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-6">Ready to Book?</h2>
+        <p class="text-xl mb-8">
+          Contact us to reserve your vehicle and plan your journey
+        </p>
+        <div class="flex justify-center space-x-4">
+          <a
+            href="tel:+919829264423"
+            class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:bg-gray-100"
+            >Call Now</a
+          >
+          <a
+            href="mailto:info@khammaghanievents.com"
+            class="border-2 border-white text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-blue-600"
+            >Email Us</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2025 Khamma Ghani Events. All Rights Reserved.</p>
+        <div class="mt-4 space-x-4">
+          <a href="#" class="hover:text-blue-400">Privacy Policy</a>
+          <a href="#" class="hover:text-blue-400">Terms of Service</a>
+        </div>
+        <p class="mt-4 text-gray-400">
+          Developed by
+          <span class="text-blue-400 font-semibold">We Are Devs</span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Modals for each tour -->
+    <!-- Airport Pickup/Drop Modal -->
+    <div id="airport-modal" class="modal">
+      <div class="modal-content bg-white rounded-lg shadow-xl">
+        <span class="close-btn" onclick="closeModal('airport')">&times;</span>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-4 text-blue-600">
+            Airport Pickup/Drop
+          </h3>
+          <div class="mb-6">
+            <p class="text-gray-600 mb-4">
+              Comfortable transportation to and from the airport with
+              professional drivers.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Sedan</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹1000</p>
+              <p class="text-gray-600 mb-4">
+                Comfortable sedan for up to 4 passengers
+              </p>
+              <button
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Airport Pickup/Drop', 'Sedan', 1000)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Innova Crysta</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹1500</p>
+              <p class="text-gray-600 mb-4">
+                Spacious SUV for up to 6 passengers
+              </p>
+              <button
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Airport Pickup/Drop', 'Innova Crysta', 1500)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Urbania</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹4250</p>
+              <p class="text-gray-600 mb-4">
+                Luxury van for up to 12 passengers
+              </p>
+              <button
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Airport Pickup/Drop', 'Urbania', 4250)"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Railway Station Modal -->
+    <div id="railway-modal" class="modal">
+      <div class="modal-content bg-white rounded-lg shadow-xl">
+        <span class="close-btn" onclick="closeModal('railway')">&times;</span>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-4 text-green-600">
+            Railway Station Pickup/Drop
+          </h3>
+          <div class="mb-6">
+            <p class="text-gray-600 mb-4">
+              Reliable transportation to and from the railway station.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Sedan</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹650</p>
+              <p class="text-gray-600 mb-4">
+                Comfortable sedan for up to 4 passengers
+              </p>
+              <button
+                class="bg-green-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Railway Station Pickup/Drop', 'Sedan', 650)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Innova Crysta</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹1000</p>
+              <p class="text-gray-600 mb-4">
+                Spacious SUV for up to 6 passengers
+              </p>
+              <button
+                class="bg-green-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Railway Station Pickup/Drop', 'Innova Crysta', 1000)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Urbania</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹3000</p>
+              <p class="text-gray-600 mb-4">
+                Luxury van for up to 12 passengers
+              </p>
+              <button
+                class="bg-green-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Railway Station Pickup/Drop', 'Urbania', 3000)"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- More modals for each tour type - following the same pattern -->
+    <!-- Sightseeing 8Hr Modal -->
+    <div id="sight8-modal" class="modal">
+      <div class="modal-content bg-white rounded-lg shadow-xl">
+        <span class="close-btn" onclick="closeModal('sight8')">&times;</span>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-4 text-purple-600">
+            Sightseeing (8Hr/80Km)
+          </h3>
+          <div class="mb-6">
+            <p class="text-gray-600 mb-4">
+              Explore city attractions (Airport & Sajjangarh not included)
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Sedan</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹2250</p>
+              <p class="text-gray-600 mb-4">
+                Comfortable sedan for up to 4 passengers
+              </p>
+              <button
+                class="bg-purple-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Sightseeing (8Hr/80Km)', 'Sedan', 2250)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Innova Crysta</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹3750</p>
+              <p class="text-gray-600 mb-4">
+                Spacious SUV for up to 6 passengers
+              </p>
+              <button
+                class="bg-purple-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Sightseeing (8Hr/80Km)', 'Innova Crysta', 3750)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Urbania</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹8500</p>
+              <p class="text-gray-600 mb-4">
+                Luxury van for up to 12 passengers
+              </p>
+              <button
+                class="bg-purple-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Sightseeing (8Hr/80Km)', 'Urbania', 8500)"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sightseeing 12Hr Modal -->
+    <div id="sight12-modal" class="modal">
+      <div class="modal-content bg-white rounded-lg shadow-xl">
+        <span class="close-btn" onclick="closeModal('sight12')">&times;</span>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-4 text-indigo-600">
+            Sightseeing (12Hr/120Km)
+          </h3>
+          <div class="mb-6">
+            <p class="text-gray-600 mb-4">
+              Comprehensive city tour with extended hours
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Sedan</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹2750</p>
+              <p class="text-gray-600 mb-4">
+                Comfortable sedan for up to 4 passengers
+              </p>
+              <button
+                class="bg-indigo-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Sightseeing (12Hr/120Km)', 'Sedan', 2750)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Innova Crysta</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹4250</p>
+              <p class="text-gray-600 mb-4">
+                Spacious SUV for up to 6 passengers
+              </p>
+              <button
+                class="bg-indigo-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Sightseeing (12Hr/120Km)', 'Innova Crysta', 4250)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Urbania</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹9000</p>
+              <p class="text-gray-600 mb-4">
+                Luxury van for up to 12 passengers
+              </p>
+              <button
+                class="bg-indigo-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Sightseeing (12Hr/120Km)', 'Urbania', 9000)"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create similar modals for each tour type -->
+    <!-- Nathdwara & Ekling Ji Modal -->
+    <div id="nathdwara-modal" class="modal">
+      <div class="modal-content bg-white rounded-lg shadow-xl">
+        <span class="close-btn" onclick="closeModal('nathdwara')">&times;</span>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-4 text-red-600">
+            Nathdwara & Ekling Ji (5Hr Tour)
+          </h3>
+          <div class="space-y-4">
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Sedan</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹2500</p>
+              <button
+                class="bg-red-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Nathdwara & Ekling Ji (5Hr Tour)', 'Sedan', 2500)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Innova Crysta</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹3750</p>
+              <button
+                class="bg-red-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Nathdwara & Ekling Ji (5Hr Tour)', 'Innova Crysta', 3750)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Urbania</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹8500</p>
+              <button
+                class="bg-red-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Nathdwara & Ekling Ji (5Hr Tour)', 'Urbania', 8500)"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create remaining modals following the same pattern -->
+    <!-- Nathdwara, Ekling Ji & Haldi Ghati Modal -->
+    <div id="nathdwara-haldi-modal" class="modal">
+      <div class="modal-content bg-white rounded-lg shadow-xl">
+        <span class="close-btn" onclick="closeModal('nathdwara-haldi')"
+          >&times;</span
+        >
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-4 text-yellow-600">
+            Nathdwara, Ekling Ji & Haldi Ghati (8Hr Tour)
+          </h3>
+          <div class="space-y-4">
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Sedan</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹2950</p>
+              <button
+                class="bg-yellow-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Nathdwara, Ekling Ji & Haldi Ghati (8Hr Tour)', 'Sedan', 2950)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Innova Crysta</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹4500</p>
+              <button
+                class="bg-yellow-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Nathdwara, Ekling Ji & Haldi Ghati (8Hr Tour)', 'Innova Crysta', 4500)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Urbania</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹9500</p>
+              <button
+                class="bg-yellow-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Nathdwara, Ekling Ji & Haldi Ghati (8Hr Tour)', 'Urbania', 9500)"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add all the other tour modals similarly -->
+    <!-- Nathdwara, Ekling Ji & City Sightseeing Modal -->
+    <div id="nathdwara-city-modal" class="modal">
+      <div class="modal-content bg-white rounded-lg shadow-xl">
+        <span class="close-btn" onclick="closeModal('nathdwara-city')"
+          >&times;</span
+        >
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-4 text-pink-600">
+            Nathdwara, Ekling Ji & City Sightseeing (12Hr Tour)
+          </h3>
+          <div class="mb-6">
+            <p class="text-gray-600 mb-4">
+              Complete city and temple exploration with extended hours
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Sedan</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹3500</p>
+              <p class="text-gray-600 mb-4">
+                Comfortable sedan for up to 4 passengers
+              </p>
+              <button
+                class="bg-pink-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Nathdwara, Ekling Ji & City Sightseeing (12Hr Tour)', 'Sedan', 3500)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Innova Crysta</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹4950</p>
+              <p class="text-gray-600 mb-4">
+                Spacious SUV for up to 6 passengers
+              </p>
+              <button
+                class="bg-pink-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Nathdwara, Ekling Ji & City Sightseeing (12Hr Tour)', 'Innova Crysta', 4950)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Urbania</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹11000</p>
+              <p class="text-gray-600 mb-4">
+                Luxury van for up to 12 passengers
+              </p>
+              <button
+                class="bg-pink-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Nathdwara, Ekling Ji & City Sightseeing (12Hr Tour)', 'Urbania', 11000)"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chittor Garh & Sanwariya Ji Modal -->
+    <div id="chittor-modal" class="modal">
+      <div class="modal-content bg-white rounded-lg shadow-xl">
+        <span class="close-btn" onclick="closeModal('chittor')">&times;</span>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-4 text-teal-600">
+            Chittor Garh & Sanwariya Ji Tour
+          </h3>
+          <div class="mb-6">
+            <p class="text-gray-600 mb-4">
+              Explore the historic fort and visit the sacred temple
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Sedan</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹4000</p>
+              <p class="text-gray-600 mb-4">
+                Comfortable sedan for up to 4 passengers
+              </p>
+              <button
+                class="bg-green-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Chittor Garh & Sanwariya Ji Tour', 'Sedan', 4000)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Innova Crysta</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹5500</p>
+              <p class="text-gray-600 mb-4">
+                Spacious SUV for up to 6 passengers
+              </p>
+              <button
+                class="bg-green-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Chittor Garh & Sanwariya Ji Tour', 'Innova Crysta', 5500)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Urbania</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹11500</p>
+              <p class="text-gray-600 mb-4">
+                Luxury van for up to 12 passengers
+              </p>
+              <button
+                class="bg-green-600 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Chittor Garh & Sanwariya Ji Tour', 'Urbania', 11500)"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mount Abu Sightseeing Modal -->
+    <div id="mountabu-modal" class="modal">
+      <div class="modal-content bg-white rounded-lg shadow-xl">
+        <span class="close-btn" onclick="closeModal('mountabu')">&times;</span>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-4 text-blue-800">
+            Mount Abu Sightseeing (Same Day Return)
+          </h3>
+          <div class="mb-6">
+            <p class="text-gray-600 mb-4">
+              Day trip to the beautiful hill station with return
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Sedan</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹4950</p>
+              <p class="text-gray-600 mb-4">
+                Comfortable sedan for up to 4 passengers
+              </p>
+              <button
+                class="bg-blue-800 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Mount Abu Sightseeing (Same Day Return)', 'Sedan', 4950)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Innova Crysta</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹7000</p>
+              <p class="text-gray-600 mb-4">
+                Spacious SUV for up to 6 passengers
+              </p>
+              <button
+                class="bg-blue-800 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Mount Abu Sightseeing (Same Day Return)', 'Innova Crysta', 7000)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Urbania</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹13825</p>
+              <p class="text-gray-600 mb-4">
+                Luxury van for up to 12 passengers
+              </p>
+              <button
+                class="bg-blue-800 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Mount Abu Sightseeing (Same Day Return)', 'Urbania', 13825)"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kumbhal Garh & Haldi Ghati Modal -->
+    <div id="kumbhal-haldi-modal" class="modal">
+      <div class="modal-content bg-white rounded-lg shadow-xl">
+        <span class="close-btn" onclick="closeModal('kumbhal-haldi')"
+          >&times;</span
+        >
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-4 text-green-800">
+            Kumbhal Garh & Haldi Ghati Tour
+          </h3>
+          <div class="mb-6">
+            <p class="text-gray-600 mb-4">
+              Explore historic forts and visit the historic battlefield
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Sedan</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹3500</p>
+              <p class="text-gray-600 mb-4">
+                Comfortable sedan for up to 4 passengers
+              </p>
+              <button
+                class="bg-green-800 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Kumbhal Garh & Haldi Ghati Tour', 'Sedan', 3500)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Innova Crysta</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹4950</p>
+              <p class="text-gray-600 mb-4">
+                Spacious SUV for up to 6 passengers
+              </p>
+              <button
+                class="bg-green-800 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Kumbhal Garh & Haldi Ghati Tour', 'Innova Crysta', 4950)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Urbania</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹10500</p>
+              <p class="text-gray-600 mb-4">
+                Luxury van for up to 12 passengers
+              </p>
+              <button
+                class="bg-green-800 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Kumbhal Garh & Haldi Ghati Tour', 'Urbania', 10500)"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kumbhal Garh & Ranakpur Modal -->
+    <div id="kumbhal-ranakpur-modal" class="modal">
+      <div class="modal-content bg-white rounded-lg shadow-xl">
+        <span class="close-btn" onclick="closeModal('kumbhal-ranakpur')"
+          >&times;</span
+        >
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-4 text-purple-800">
+            Kumbhal Garh & Ranakpur Tour
+          </h3>
+          <div class="mb-6">
+            <p class="text-gray-600 mb-4">
+              Visit UNESCO World Heritage site and famous Jain temple
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Sedan</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹3600</p>
+              <p class="text-gray-600 mb-4">
+                Comfortable sedan for up to 4 passengers
+              </p>
+              <button
+                class="bg-purple-800 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Kumbhal Garh & Ranakpur Tour', 'Sedan', 3600)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Innova Crysta</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹5100</p>
+              <p class="text-gray-600 mb-4">
+                Spacious SUV for up to 6 passengers
+              </p>
+              <button
+                class="bg-purple-800 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Kumbhal Garh & Ranakpur Tour', 'Innova Crysta', 5100)"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <h4 class="font-bold text-lg">Urbania</h4>
+              <p class="text-2xl font-bold text-gray-800 mb-2">₹10600</p>
+              <p class="text-gray-600 mb-4">
+                Luxury van for up to 12 passengers
+              </p>
+              <button
+                class="bg-purple-800 text-white px-4 py-2 rounded-lg w-full"
+                onclick="sendMessage('Kumbhal Garh & Ranakpur Tour', 'Urbania', 10600)"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript for Modal Functionality -->
+    <script>
+      function openModal(tour) {
+        document.getElementById(tour + '-modal').style.display = 'block';
+      }
+
+      function closeModal(tour) {
+        document.getElementById(tour + '-modal').style.display = 'none';
+      }
+
+      // Close modal when clicking outside the modal content
+      window.onclick = function (event) {
+        if (event.target.classList.contains('modal')) {
+          event.target.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      };
+
+      function sendMessage(tourName, vehicleType, price) {
+        const message = `Hello,\nI would like to book the *${tourName}* tour with a *${vehicleType}*.\nCan you please confirm the availability and details?`;
+
+        // Encode the message for WhatsApp
+        const encodedMessage = encodeURIComponent(message);
+
+        // Redirect to WhatsApp with the message
+        window.open(
+          `https://wa.me/919829264423?text=${encodedMessage}`,
+          '_blank'
+        );
+      }
+    </script>
+  </body>
+</html>
